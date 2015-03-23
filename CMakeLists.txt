@@ -7,8 +7,6 @@ cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
 include(cmake/dist.cmake)
 include(lua)
 
-SET(CTEST_OUTPUT_ON_FAILURE TRUE)
-
 if(MSVC)
     # Predefined Macros: http://msdn.microsoft.com/en-us/library/b0084kay.aspx
     # Compiler options: http://msdn.microsoft.com/en-us/library/fwkeyyhe.aspx
@@ -31,7 +29,8 @@ else()
     set(CMAKE_CXX_FLAGS_RELEASE   "-O2 -DNDEBUG")
 endif()
 
+include_directories(include)
 add_definitions ( -DDIST_VERSION="${DIST_VERSION}" )
-install_lua_module(tdigest src/TDigest.cpp src/TDigest.def )
+install_lua_module(tdigest src/TDigest.cpp src/lua.cpp src/TDigest.def )
 
 add_lua_test(tests/test.lua)
