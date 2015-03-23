@@ -1,6 +1,6 @@
 Lua t-digest library
 ====================
-The [https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf](t-digest construction algorithm) uses a variant of 1-dimensional k-means clustering to product a data structure that is related to the Q-digest, which can be used to estimate quantiles. The error bound of t-digest is relative to the quantile and has higher accuracy when computing quantiles for very small *q* or for *q* near 1. The accuracy/size tradeoff is controlled by a single parameter.
+The [t-digest construction algorithm](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf) uses a variant of 1-dimensional k-means clustering to product a data structure that is related to the Q-digest, which can be used to estimate quantiles. The error bound of t-digest is relative to the quantile and has higher accuracy when computing quantiles for very small *q* or for *q* near 1. The accuracy/size tradeoff is controlled by a single parameter.
 
 ## Installation
 
