@@ -22,7 +22,7 @@ static int lua_tdigest_new(lua_State *lua) {
   luaL_argcheck(lua, n <= 1, 0, "incorrect number of arguments");
 
   double accuracy = n == 1 ? luaL_checknumber(lua, 1) : 0.01;
-  size_t nbytes = sizeof(TDigest);
+  size_t nbytes = sizeof(TDigest*);
   TDigest **data = (TDigest **)lua_newuserdata(lua, nbytes);
   *data = new TDigest(accuracy);
 
