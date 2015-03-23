@@ -325,31 +325,3 @@ int luaopen_tdigest(lua_State *lua) {
   luaL_newlib(lua, tdigest_f);
   return 1;
 }
-
-int main() {
-  random_device rd;
-  mt19937 gen(rd());
-  uniform_real_distribution<> dis(1, 2);
-  normal_distribution<> d1(5,1);
-  normal_distribution<> d2(10,5);
-  exponential_distribution<> d3(3.5);
-
-  vector<double> sample;
-  for (int i = 0; i < 10000; ++i) {
-    sample.push_back(d1(gen) + d2(gen) + d3(gen));
-  }
-
-  TDigest digest;
-  for (auto n : sample) {
-    digest.add(n);
-  }
-
-  sort(sample.begin(), sample.end());
-
-  for (double i = 0.1; i <= 0.99; i += 0.01) {
-    double q = sample[int(i*sample.size())];
-    assert(abs(q - digest.quantile(i)) < 0.1);
-  }
-
-  return 0;
-}
