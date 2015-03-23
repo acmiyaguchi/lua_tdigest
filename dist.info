@@ -1,0 +1,12 @@
+name = "tdigest"
+version = "0.1.0"
+
+desc = "T-digest: accurate on-line accumulation of rank-based statistics"
+author = "Roberto Agostino Vitillo"
+license = "MPL 2.0"
+url = "https://github.com/vitillo/lua_tdigest"
+maintainer = "Roberto Agostino Vitillo"
+
+depends = {
+  "lua >= 5.1"
+}
